@@ -1,0 +1,22 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+nav {
+    display: flex;
+    border: 1rem solid red;
+    height: 50px;
+    width: 100%;
+}
+
+.sight-title {
+
+}
+
+.sign-in-button {
+
+}
