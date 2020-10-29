@@ -7,10 +7,48 @@
     <body>
         <nav>
             <span class="site-title">Book Collection</span>
-            <div class="sign-in-button">
+            <button class="sign-in-button" >
                 SIGN IN
-            </div>
+            </button>
         </nav>
+        <section>
+            <button 
+                class="button" 
+                id="new-book-button" 
+                type="button"
+            >
+                New Book
+            </button>
+            <div class="library-grid" id="library-grid">
+
+            </div>
+        </section>
+        <div class="modal" id="modal-book">
+            <div class='modal-content'>
+                <h3>New Book</h3>
+                <form id="new-book-form">
+                    <div>
+                        <label for="title-new">Book Title: </label>
+                        <input type="text" id="title-new" name="title" required>
+                    </div>
+                    <div>
+                        <label for="author-new">Book Author: </label>
+                        <input type="text" id="author-new" name="author" required>
+                    </div>
+                    <div>
+                        <label for="pages-new">Number of Pages: </label>
+                        <input type="number" name="pages" required>
+                    </div>
+                    <div>
+                        <label for="read-checkbox">Have you read this book? </label>
+                        <input type="checkbox" id="read-checkbox" name="read">
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
         <script src="library.js"></script>
     </body>
 </html>
