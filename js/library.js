@@ -1,3 +1,6 @@
+
+let library = [];
+
 class Book {
     constructor(title, author, pages, read) {
         this.author = author;
@@ -7,13 +10,6 @@ class Book {
         this.id = "book-" + create_UUID();
     }
 }
-
-let library = [
-    new Book('TKAMB', 'Harper Lee', 281, false), 
-    new Book('1984', 'George Orwell', 328, false),
-    new Book('The Catcher in the Rye', 'J. D. Salinger', 234, false),
-    new Book('The Great Gatsby', 'F. Scott Fitzgerald', 218, false)
-];
 
 function addBookToLibrary(book) {
     library.push(book);
@@ -88,11 +84,8 @@ function handleNewBookForm() {
     form.addEventListener("submit", function(event) {
         document.getElementById('modal-book').style.display = "none"
 
-        let title = form.elements.title.value;
-        let author = form.elements.author.value;
-        let pages = form.elements.pages.value
-        let read = form.elements.read.value;
-        let newBook = new Book(title, author, pages, read);
+        const { title, author, pages, read } = form.elements;
+        let newBook = new Book(title.value, author.value, pages.value, read.value);
 
         addBookToLibrary(newBook);
 
@@ -108,7 +101,7 @@ function handleRemoveButton(event) {
     removeBookFromLibrary(targetBook);
 }
 
-function create_UUID(){
+function create_UUID() {
     var dt = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = (dt + Math.random()*16)%16 | 0;
