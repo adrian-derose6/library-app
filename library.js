@@ -22,7 +22,12 @@ function addBookToLibrary(book) {
 }
 
 function removeBookFromLibrary(book) {
+    let index = library.indexOf(book);
+    if (index > -1) {
+        library.splice(index, 1);
+    }
 
+    renderLibrary(library);
 }
 
 function toggleRead(event) {
@@ -48,7 +53,7 @@ function renderBook (book) {
                 <span class="slider round"></span>
             </label>
         </div>
-        <button onclick="handleRemoveButton()">Remove Book</button>
+        <button onclick="handleRemoveButton(event)" data-remove-id="${id}">Remove Book</button>
     `;
     
     return bookCard;
@@ -96,8 +101,11 @@ function handleNewBookForm() {
     });
 }
 
-function handleRemoveButton() {
-    let 
+function handleRemoveButton(event) {
+    const { removeId } = event.target.dataset;
+    let targetBook = library.find(book => book.id === removeId);
+
+    removeBookFromLibrary(targetBook);
 }
 
 function create_UUID(){
